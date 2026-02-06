@@ -8,7 +8,7 @@ static pid_t child;
 static void handle_sigterm(__attribute__((unused)) int sig,
                            __attribute__((unused)) siginfo_t* info,
                            __attribute__((unused)) void* mcontext) {
-  char ch;
+  char ch = 0;
   /* Make sure our signals are enabled. This will hang if they
      aren't. */
   test_assert(1 == read(pipe_fds[0], &ch, 1));

@@ -17,7 +17,7 @@ static void handle_sig(__attribute__((unused)) int sig,
 int main(void) {
   struct sigaction sa;
   struct sigevent sevp;
-  char ch;
+  char ch = 0;
   timer_t id;
   timer_t id2;
   struct itimerspec timeout = { { 0, 0 }, { 0, 1000000 } };

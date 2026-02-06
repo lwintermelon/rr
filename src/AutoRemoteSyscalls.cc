@@ -663,7 +663,7 @@ static vector<ScopedFd> maybe_receive_fds(ScopedFd& sock, bool blocking = true) 
   vector<ScopedFd> ret;
   struct msghdr msg;
   memset(&msg, 0, sizeof(msg));
-  char ch;
+  char ch = 0;
   struct iovec iov = { &ch, 1 };
   msg.msg_iov = &iov;
   msg.msg_iovlen = 1;

@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
   int pipe_fds[2];
   struct user_regs_struct regs;
   uid_t uid = geteuid();
-  char ch;
+  char ch = 0;
   int strict = !(argc == 2 && !strcmp(argv[1], "relaxed"));
 
   test_assert(0 == pipe(pipe_fds));

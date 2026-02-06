@@ -11,7 +11,7 @@ int main(void) {
   test_assert(ret == 0);
 
   if (0 == (child = fork())) {
-    char ch;
+    char ch = 0;
     read(parent_to_child_fds[0], &ch, 1);
     return 77;
   }

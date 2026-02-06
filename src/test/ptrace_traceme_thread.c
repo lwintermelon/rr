@@ -7,7 +7,7 @@ static int child_to_parent_fds[2];
 
 static void* do_thread(__attribute__((unused)) void* p) {
   pid_t child = fork();
-  char ch;
+  char ch = 0;
   if (!child) {
     test_assert(0 == ptrace(PTRACE_TRACEME, 0, 0, 0));
     test_assert(1 == write(child_to_parent_fds[1], "x", 1));

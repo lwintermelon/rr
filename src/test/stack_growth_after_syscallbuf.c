@@ -12,7 +12,7 @@ static int recurse(int count) {
 int main(void) {
   struct rlimit limit;
   int fd = open("/dev/zero", O_RDONLY);
-  char ch;
+  char ch = 0;
   test_assert(fd >= 0);
 
   test_assert(0 == getrlimit(RLIMIT_STACK, &limit));

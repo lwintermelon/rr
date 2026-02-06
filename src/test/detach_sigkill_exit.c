@@ -7,7 +7,7 @@ static int parent_to_child[2];
 int main(__attribute__((unused)) int argc,
          __attribute__((unused)) char **argv) {
     int status;
-    char ch;
+    char ch = 0;
     pid_t pid;
     siginfo_t sig;
 

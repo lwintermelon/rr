@@ -5,7 +5,7 @@
 static int pipe_fds[2];
 
 static void* child_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
   test_assert(1 == read(pipe_fds[0], &ch, 1));
   test_assert(ch == 'K');
   exit(77);

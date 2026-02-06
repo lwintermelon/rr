@@ -160,7 +160,7 @@ int main(void) {
   struct sigaction sa;
   pthread_t thread;
   pthread_t w_thread;
-  char ch;
+  char ch = 0;
 
   test_get_action_avail();
   test_get_notif_sizes();

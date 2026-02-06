@@ -237,7 +237,7 @@ CommandForCheckpoint export_checkpoints(ReplaySession::shr_ptr session, int coun
       command_for_checkpoint.args = std::move(args);
       command_for_checkpoint.session = std::move(checkpoint);
       setup_child_fds(fds_data, command_for_checkpoint);
-      char ch;
+      char ch = 0;
       ret = read(parent_to_child_read, &ch, 1);
       if (ret != 1) {
         FATAL() << "Failed to read parent notification";

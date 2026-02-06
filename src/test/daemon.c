@@ -17,7 +17,7 @@ static int do_child(void) {
 
 int main(void) {
   pid_t child;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(pipe_fds));
 

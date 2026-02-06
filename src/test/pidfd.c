@@ -13,7 +13,7 @@ int main(void) {
   pipe(pipe_fds);
   child = fork();
   if (!child) {
-    char ch;
+    char ch = 0;
     read(pipe_fds[0], &ch, 1);
     return 77;
   }

@@ -4,7 +4,7 @@
 
 static char fifo_name[] = "fifo";
 
-static volatile char ch;
+static volatile char ch = 0;
 
 static void do_stuff(void) {
   int i;

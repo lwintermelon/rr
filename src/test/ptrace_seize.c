@@ -11,7 +11,7 @@ static int child_to_parent_fds[2];
 
 int main(void) {
   pid_t child;
-  char ch;
+  char ch = 0;
   int status;
 
   test_assert(0 == pipe(parent_to_child_fds));

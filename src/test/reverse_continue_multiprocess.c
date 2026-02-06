@@ -11,7 +11,7 @@ int main(void) {
   pid_t pid;
   int status;
   int i;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(parent_to_child));
   test_assert(0 == pipe(child_to_parent));
@@ -25,7 +25,7 @@ int main(void) {
   pid = fork();
   if (0 == pid) {
     for (i = 0; i < 1000; ++i) {
-      char ch;
+      char ch = 0;
       test_assert(1 == read(parent_to_child[0], &ch, 1) && ch == 'y');
       kill(getpid(), SIGCHLD);
       test_assert(1 == write(child_to_parent[1], "x", 1));

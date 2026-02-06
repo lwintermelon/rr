@@ -13,7 +13,7 @@ static void sighandler(__attribute__((unused)) int sig) {
 }
 
 int main(void) {
-  char ch;
+  char ch = 0;
   int fd = open("/dev/zero", O_RDONLY);
 
   signal(SIGSEGV, sighandler);

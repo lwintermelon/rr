@@ -39,7 +39,7 @@ static void* run_thread(__attribute__((unused)) void* p) {
 
 int main(void) {
   pthread_t thread;
-  char ch;
+  char ch = 0;
   int i;
   sigset_t mask;
 

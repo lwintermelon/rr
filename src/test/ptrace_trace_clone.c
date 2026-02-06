@@ -13,7 +13,7 @@ static void* do_thread(__attribute__((unused)) void* p) { return NULL; }
 
 int main(void) {
   pid_t child;
-  char ch;
+  char ch = 0;
   int status;
   unsigned long cloned_pid;
   struct user_regs_struct regs;

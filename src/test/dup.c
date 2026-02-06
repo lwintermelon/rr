@@ -7,7 +7,7 @@ static char buf[] = "0123456789";
 int main(void) {
   int pipe_fds[2];
   int fd;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(pipe_fds));
   test_assert(10 == write(pipe_fds[1], buf, 10));

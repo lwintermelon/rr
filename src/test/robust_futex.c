@@ -19,7 +19,7 @@ int main(void) {
   pthread_t thread;
   pid_t child;
   int status;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(pipe_fds));
 

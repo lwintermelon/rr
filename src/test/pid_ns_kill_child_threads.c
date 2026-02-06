@@ -23,7 +23,7 @@ static void do_grandchild(void) {
 int main(void) {
   pid_t pid;
   int pipe_fds[2];
-  char ch;
+  char ch = 0;
   pipe(pipe_fds);
   struct timespec ts = { 0, 1000000 };
 

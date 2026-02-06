@@ -22,11 +22,11 @@ int main(int argc, char** argv, char** envp) {
     if (child == 0) {
       test_assert(setpgid(0, 0) == 0);
       test_assert(write(child_to_parent[1], "x", 1) == 1);
-      char ch;
+      char ch = 0;
       test_assert(read(parent_to_child[0], &ch, 1) == 1);
       return 0;
     }
-    char ch;
+    char ch = 0;
     test_assert(read(child_to_parent[0], &ch, 1) == 1);
     test_assert(setpgid(getpid(), child) == 0);
     test_assert(write(parent_to_child[1], "x", 1) == 1);

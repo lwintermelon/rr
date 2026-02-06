@@ -45,7 +45,7 @@ static size_t my_read(int fd, void* buf, size_t size) {
 }
 
 static void* do_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
   breakpoint_thread();
   test_assert(1 == write(thread_to_main_fds[1], "y", 1));
   test_assert(1 == read(main_to_thread_fds[0], &ch, 1));
@@ -54,7 +54,7 @@ static void* do_thread(__attribute__((unused)) void* p) {
 
 int main(void) {
   pthread_t thread;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(thread_to_main_fds));
   test_assert(0 == pipe(main_to_thread_fds));

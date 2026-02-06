@@ -8,7 +8,7 @@ static int low_to_high[2];
 static int high_to_low[2];
 
 static void* low_priority_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
 
   setpriority(PRIO_PROCESS, 0, 4);
 
@@ -22,7 +22,7 @@ static void* low_priority_thread(__attribute__((unused)) void* p) {
 
 int main(void) {
   pthread_t thread;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(low_to_high));
   test_assert(0 == pipe(high_to_low));

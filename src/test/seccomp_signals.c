@@ -49,7 +49,7 @@ int main(void) {
   sigaction(SIGSYS, &sa, NULL);
 
   for (i = 0; i < 1000; ++i) {
-    char ch;
+    char ch = 0;
     read(pipe_fds[0], &ch, 1);
   }
 

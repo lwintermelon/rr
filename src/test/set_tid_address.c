@@ -7,7 +7,7 @@ static int* p;
 static int pipe_fds[2];
 
 static void* run_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
   test_assert(1 == read(pipe_fds[0], &ch, 1));
   test_assert(sys_gettid() == syscall(SYS_set_tid_address, &v));
   return NULL;
@@ -21,7 +21,7 @@ static void* run_thread2(__attribute__((unused)) void* q) {
 
 int main(void) {
   pthread_t thread;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(pipe_fds));
 

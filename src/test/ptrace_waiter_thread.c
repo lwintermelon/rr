@@ -18,7 +18,7 @@ static void* do_thread(__attribute__((unused)) void* p) {
 
 int main(void) {
   pthread_t thread;
-  char ch;
+  char ch = 0;
   test_assert(0 == pipe(parent_to_child));
 
   if (0 == (child = fork())) {

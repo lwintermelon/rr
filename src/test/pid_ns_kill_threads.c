@@ -13,7 +13,7 @@ static void* do_thread(void* p) {
   /* Reduce thread priority so rr doesn't schedule these threads unless we want it to */
   setpriority(PRIO_PROCESS, 0, 5);
   if (index == NUM_THREADS - 1) {
-    char ch;
+    char ch = 0;
     read(trigger_last_thread_pipe[0], &ch, 1);
     /* Kick off the init process exit ...
        after our exit_group has started. */
@@ -37,7 +37,7 @@ static void* do_thread(void* p) {
  */
 static int do_pid_ns_init(void) {
   pid_t child;
-  char ch;
+  char ch = 0;
   pipe(trigger_last_thread_pipe);
   pipe(trigger_pid_ns_init_exit_pipe);
 

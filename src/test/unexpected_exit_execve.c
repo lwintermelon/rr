@@ -31,7 +31,7 @@ static char delay(void) {
 #else
   /* Does this actually change registers on ARM??? */
   int i;
-  static volatile char ch;
+  static volatile char ch = 0;
   for (i = 0; i < 10000000; ++i) {
     ch = i % 3;
   }

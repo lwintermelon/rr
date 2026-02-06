@@ -32,7 +32,7 @@ static int run_grandchild(void) {
 }
 
 static int run_child(void) {
-  char ch;
+  char ch = 0;
   if (!fork()) {
     return run_grandchild();
   }
@@ -41,7 +41,7 @@ static int run_child(void) {
 }
 
 int main(void) {
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(grandchild_to_child_fds));
   test_assert(0 == pipe(grandchild_to_main_fds));

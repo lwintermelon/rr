@@ -27,7 +27,7 @@ static int spin(void) {
  * the thread.
  */
 static void* do_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
   breakpoint();
   /* Will never return */
   read(STDIN_FILENO, &ch, 1);

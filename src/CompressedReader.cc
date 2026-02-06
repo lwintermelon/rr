@@ -25,7 +25,7 @@ CompressedReader::CompressedReader(const string& filename)
   if (error) {
     eof = false;
   } else {
-    char ch;
+    char ch = 0;
     eof = pread(*fd, &ch, 1, fd_offset) == 0;
   }
   buffer_read_pos = 0;
@@ -140,7 +140,7 @@ bool CompressedReader::refill_buffer(size_t* skip_bytes) {
     if (skip_bytes && *skip_bytes >= header.uncompressed_length) {
       fd_offset += header.compressed_length;
       *skip_bytes -= header.uncompressed_length;
-      char ch;
+      char ch = 0;
       if (pread(*fd, &ch, 1, fd_offset) == 0) {
         eof = true;
         return false;
@@ -155,7 +155,7 @@ bool CompressedReader::refill_buffer(size_t* skip_bytes) {
       return false;
     }
 
-    char ch;
+    char ch = 0;
     if (pread(*fd, &ch, 1, fd_offset) == 0) {
       eof = true;
     }

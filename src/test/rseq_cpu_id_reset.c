@@ -29,7 +29,7 @@ static int main_child(void) {
   test_assert(rs_ptr->cpu_id < CPU_INVALID);
 
   for (int i = 0; i < PING_PONG_ITERATIONS; ++i) {
-    char ch;
+    char ch = 0;
     rs_ptr->cpu_id_start = CPU_INVALID;
     rs_ptr->cpu_id = CPU_INVALID;
     test_assert(1 == write(to_main_fds[1], "y", 1));
@@ -65,7 +65,7 @@ int main(void) {
         NULL, NULL, NULL, NULL);
 
   for (int i = 0; i < PING_PONG_ITERATIONS; ++i) {
-    char ch;
+    char ch = 0;
     test_assert(1 == read(to_main_fds[0], &ch, 1));
     test_assert(1 == write(from_main_fds[1], "x", 1));
   }

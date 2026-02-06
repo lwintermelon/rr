@@ -15,7 +15,7 @@ static int to_child[2];
 static int from_child[2];
 
 static void* run_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
   sigset_t s;
 
   sigemptyset(&s);
@@ -42,7 +42,7 @@ static void handler(int sig, __attribute__((unused)) siginfo_t* si,
 
 int main(void) {
   pthread_t t;
-  char ch;
+  char ch = 0;
   struct sigaction sa;
 
   test_assert(0 == pipe(to_child));
