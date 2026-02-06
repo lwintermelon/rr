@@ -13,7 +13,7 @@ int main(void) {
   pid_t child;
   pthread_t thread;
   int pipe_fds[2];
-  char ch;
+  char ch = 0;
 
   pipe(pipe_fds);
   child = fork();

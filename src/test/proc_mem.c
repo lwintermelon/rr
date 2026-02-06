@@ -120,7 +120,7 @@ static void do_test(int (*opener)(int)) {
 
   child = fork();
   if (!child) {
-    char ch;
+    char ch = 0;
     test_assert(1 == read(pipe_fds[0], &ch, 1));
     test_assert(COOKIE == cookie1);
     test_assert(COOKIE == cookie2);

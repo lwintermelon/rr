@@ -57,7 +57,7 @@ static void write_control_message(const string& s) {
 }
 
 static void wait_for_reply() {
-  char ch;
+  char ch = 0;
   if (read(control_fd, &ch, 1) != 1) {
     FATAL() << "Can't read reply from socket";
   }

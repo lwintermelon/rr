@@ -1608,7 +1608,7 @@ TraceReader::TraceReader(const string& dir)
   }
   string version_str;
   while (true) {
-    char ch;
+    char ch = 0;
     ssize_t ret = read(version_fd, &ch, 1);
     if (ret <= 0) {
       FATAL() << "Can't read version file " << path;

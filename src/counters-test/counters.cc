@@ -805,7 +805,7 @@ static void reset_counter_period(int counter_fd, uint64_t period) {
 /* Wait for child to pause, read counter value, reset the counter value,
    resume the child, and report the read counter value */
 static Ticks reset_counting(pid_t child, int counter_fd, uint64_t period) {
-  char ch;
+  char ch = 0;
   CHECK(1 == read(child_to_parent_fds[0], &ch, 1));
   CHECK(ch == 'x');
   Ticks ticks;
@@ -900,7 +900,7 @@ int main(int argc, char** argv) {
 
   reset_counting(child, counter_fd, interrupt_period);
   for (int i = 0; i < interrupt_tests; ++i) {
-    char ch;
+    char ch = 0;
     CHECK(1 == read(child_to_parent_fds[0], &ch, 1));
     CHECK(ch == 'x');
     Ticks ticks;

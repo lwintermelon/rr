@@ -12,7 +12,7 @@ static int run_thread(__attribute__((unused)) void* p) {
 int main(void) {
   char* stack = (char*)xmalloc(65536) + 65536;
   int ret;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(pipe_fds));
   ret = clone(run_thread, stack, CLONE_UNTRACED, NULL);

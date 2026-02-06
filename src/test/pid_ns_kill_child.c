@@ -6,7 +6,7 @@
 int main(void) {
   pid_t pid;
   int pipe_fds[2];
-  char ch;
+  char ch = 0;
   pipe(pipe_fds);
 
   if (-1 == try_setup_ns(CLONE_NEWPID)) {

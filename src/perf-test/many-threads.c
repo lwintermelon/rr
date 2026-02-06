@@ -12,7 +12,7 @@ static void* do_thread(__attribute__((unused)) void* p) {
 
 static void* do_thread2(__attribute__((unused)) void* p) {
   for (int i = 0; i < 20000; ++i) {
-    char ch;
+    char ch = 0;
     read(main_to_child_fds[0], &ch, 1);
     write(child_to_main_fds[1], "y", 1);
   }
@@ -30,7 +30,7 @@ int main(void) {
   pthread_t th;
   pthread_create(&th, NULL, do_thread2, NULL);
   for (int i = 0; i < 20000; ++i) {
-    char ch;
+    char ch = 0;
     write(main_to_child_fds[1], "x", 1);
     read(child_to_main_fds[0], &ch, 1);
   }

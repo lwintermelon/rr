@@ -20,7 +20,7 @@ static void* start_thread(__attribute__((unused)) void* p) {
 
 int main(void) {
   pthread_t thread;
-  char ch;
+  char ch = 0;
 
   test_assert(0 == pipe(pipe_fds));
 

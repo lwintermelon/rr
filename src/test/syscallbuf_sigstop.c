@@ -5,7 +5,7 @@
 static int do_child(void) {
   int fd = open("/dev/zero", O_RDONLY);
   int i;
-  char ch;
+  char ch = 0;
 
   test_assert(fd >= 0);
   for (i = 0; i < 10000; ++i) {

@@ -5,7 +5,7 @@
 static int pipe_fds[2];
 
 static void* start_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
 
   sleep(1);
   atomic_puts("EXIT-SUCCESS");
@@ -17,7 +17,7 @@ static void* start_thread(__attribute__((unused)) void* p) {
 int main(void) {
   pid_t child;
   pthread_t thread;
-  char ch;
+  char ch = 0;
 
   pipe(pipe_fds);
   child = fork();

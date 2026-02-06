@@ -10,7 +10,7 @@ static int parent_to_child_fds[2];
 
 int main(void) {
   pid_t child;
-  char ch;
+  char ch = 0;
   int status;
   unsigned long cloned_pid;
 

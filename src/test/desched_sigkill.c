@@ -8,7 +8,7 @@ static int child_to_parent[2];
 
 int main(void) {
   int ret, status;
-  char ch;
+  char ch = 0;
 
   // This test is a bit non-deterministic, because it relies on the kernel's
   // scheduling behavior. The scheduling we're looking to test is:

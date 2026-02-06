@@ -40,7 +40,7 @@ static int try_setup_ns_internal(int ns_kind, int expect_to_be_root) {
     pid_t child = fork();
     test_assert(child >= 0);
     if (!child) {
-      char ch;
+      char ch = 0;
 
       close(child_block[1]);
 

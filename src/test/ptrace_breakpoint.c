@@ -28,7 +28,7 @@ int main(void) {
   test_assert(0 == pipe(pipe_fds));
 
   if (0 == (child = fork())) {
-    char ch;
+    char ch = 0;
     read(pipe_fds[0], &ch, 1);
     breakpoint();
     return 77;

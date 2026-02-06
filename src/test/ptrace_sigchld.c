@@ -19,7 +19,7 @@ int main(void) {
   signal(SIGCHLD, handle_sigchld);
 
   if (0 == (child1 = fork())) {
-    char ch;
+    char ch = 0;
     read(parent_to_child_fds[0], &ch, 1);
     kill(getpid(), SIGTERM);
     return 77;

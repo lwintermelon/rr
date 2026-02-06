@@ -8,7 +8,7 @@ static int child_to_parent[2];
 int main(__attribute__((unused)) int argc,
          __attribute__((unused)) char **argv) {
     int status;
-    char ch;
+    char ch = 0;
     pid_t pid;
 
     test_assert(0 == pipe(parent_to_child));

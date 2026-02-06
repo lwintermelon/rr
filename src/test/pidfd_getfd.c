@@ -9,7 +9,7 @@ int main(void) {
   int pipe_fds[2];
   int pidfd, gotfd;
   int status;
-  char ch;
+  char ch = 0;
 
   pipe(pipe_fds);
   child = fork();

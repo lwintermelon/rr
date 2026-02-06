@@ -32,7 +32,7 @@ static void* do_thread(__attribute__((unused)) void* p) {
 
 int main(void) {
   pid_t child;
-  char ch;
+  char ch = 0;
   pthread_t threads[NUM_THREADS];
   int i;
 

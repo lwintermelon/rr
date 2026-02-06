@@ -6,7 +6,7 @@ static int flag;
 static int pipe_fds[2];
 
 static void* run_thread(__attribute__((unused)) void* p) {
-  char ch;
+  char ch = 0;
   int ret = read(pipe_fds[0], &ch, 1);
   if (ret != 1) {
     abort();
