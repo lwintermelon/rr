@@ -1817,6 +1817,11 @@ security = InvalidSyscall(x64=185)
 epoll_ctl_old = UnsupportedSyscall(x64=214)
 epoll_wait_old = UnsupportedSyscall(x64=215)
 
+# terramaster acl
+tm_set_archive_bit = EmulatedSyscall(x64=700)
+tm_get_archive_bit = EmulatedSyscall(x64=701, arg2="uint32_t")
+tm_is_fs_tmacl = EmulatedSyscall(x64=702, arg2="uint32_t")
+
 def _syscalls():
     for name, obj in globals().items():
         if isinstance(obj, BaseSyscall):
