@@ -1681,7 +1681,9 @@ getrandom = IrregularEmulatedSyscall(x86=355, x64=318, generic=278)
 memfd_create = IrregularEmulatedSyscall(x86=356, x64=319, generic=279)
 arch_prctl = IrregularEmulatedSyscall(x86=384, x64=158)
 
-bpf = IrregularEmulatedSyscall(x86=357, x64=321, generic=280)
+# bpf = IrregularEmulatedSyscall(x86=357, x64=321, generic=280)
+# TOSDaemon use bpf command not supported by rr
+bpf = UnsupportedSyscall(x86=357, x64=321, generic=280)
 execveat = IrregularEmulatedSyscall(x86=358, x64=322, generic=281)
 userfaultfd = IrregularEmulatedSyscall(x86=374, x64=323, generic=282)
 membarrier = EmulatedSyscall(x86=375, x64=324, generic=283)
